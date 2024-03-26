@@ -3,7 +3,7 @@
     <q-header elevated class="header bg-white text-black">
       <q-toolbar class="toolbar flex justify-between">
         <div class="flex items-center">
-          <q-btn flat round icon="menu" @click="toggleLeftDrawer" />
+          <q-btn flat round icon="o_menu" @click="toggleLeftDrawer" />
           <q-toolbar-title class="title flex items-center">
             <img class="logo" src="/yt-logo.svg" />
           </q-toolbar-title>
@@ -27,12 +27,8 @@
 
         <div class="right-menu">
           <div class="right-icons">
-            <q-icon>
-              <img src="/src/assets/bell.svg" class="bell-icon" />
-            </q-icon>
-            <q-icon>
-              <img src="/src/assets/video-camera.svg" class="bell-icon" />
-            </q-icon>
+            <q-icon name="o_notifications" size="2.2em" />
+            <q-icon name="o_video_call" size="2.2em" />
           </div>
           <q-avatar>
             <img src="/account-avatar.jpg" />
@@ -41,8 +37,39 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
-      <!-- drawer content -->
+    <q-drawer show-if-above v-model="leftDrawerOpen" :width="200" side="left">
+      <q-list padding class="menu-list">
+        <q-item clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon size="md" name="o_home" outlined />
+          </q-item-section>
+          <q-item-section class="menu-label"> Home </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon size="md" name="o_music_video" />
+          </q-item-section>
+          <q-item-section class="menu-label"> Shorts </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon size="md" name="o_subscriptions" />
+          </q-item-section>
+          <q-item-section class="menu-label"> Home </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon size="md" name="o_video_library" />
+          </q-item-section>
+          <q-item-section class="menu-label"> You </q-item-section>
+        </q-item>
+        <q-item clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon size="md" name="o_history" />
+          </q-item-section>
+          <q-item-section class="menu-label"> History </q-item-section>
+        </q-item>
+      </q-list>
     </q-drawer>
 
     <q-page-container>
@@ -86,7 +113,7 @@ export default {
 }
 
 .search {
-  width: 30vw;
+  display: none;
 }
 
 .search-icon {
@@ -113,18 +140,24 @@ export default {
 @media (min-width: 768px) {
   .right-icons {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
+    color: #374151;
   }
 
-  .search-icon {
-    display: hidden;
-    background-color: #d1d5db;
-    height: 100%;
-    width: 3.5rem;
-    right: -0.7rem;
-    border-top-right-radius: 1.3rem;
-    border-bottom-right-radius: 1.3rem;
+  .search {
+    display: none;
+    width: 30vw;
+  }
+
+  .menu-list {
+    color: #374151;
+    padding-top: 2rem;
+  }
+
+  .menu-label {
+    font-size: 1rem;
+    font-weight: 500;
   }
 }
 </style>
