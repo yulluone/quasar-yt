@@ -20,7 +20,7 @@
             placeholder="Search"
           >
             <template v-slot:append>
-              <q-icon class="search-icon" name="search" />
+              <q-icon class="search-icon" name="o_search" />
             </template>
           </q-input>
         </div>
@@ -117,7 +117,13 @@ export default {
 }
 
 .search-icon {
-  display: hidden;
+  background-color: #d1d5db;
+  height: 96%;
+  width: 3.5rem;
+  right: -0.65rem;
+  border-top-right-radius: 1.6rem;
+  border-bottom-right-radius: 1.6rem;
+  align-self: center;
 }
 
 .bell-icon {
@@ -146,7 +152,7 @@ export default {
   }
 
   .search {
-    display: none;
+    display: block;
     width: 30vw;
   }
 
